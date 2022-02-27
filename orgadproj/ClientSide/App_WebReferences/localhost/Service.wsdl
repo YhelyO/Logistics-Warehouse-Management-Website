@@ -1,0 +1,1270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="RegisterUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="u" type="tns:Users" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Users">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Firstname" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Lastname" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Adress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Phonenumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pic" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Job" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Gender" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Datebirth" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RegisterUserResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="UserLogin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="u" type="tns:Users" />
+            <s:element minOccurs="1" maxOccurs="1" name="choice" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserLoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserLoginResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="u" type="tns:Users" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateUserResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="AdminSearch">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="choice" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AdminSearchResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdminSearchResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsExists">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="num" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="table" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="toCheck" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsExistsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IsExistsResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="u" type="tns:Stock" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Stock">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Pcode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pname" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pdescribe" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pquantity" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pkind" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ppic" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddItemResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetPicName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPicNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPicNameResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="u" type="tns:Stock" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateItemResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ItemSearch">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ItemSearchResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ItemSearchResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ItemSearchByCode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ItemSearchByCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ItemSearchByCodeResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ItemSearchByCodeReal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ItemSearchByCodeRealResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ItemSearchByCodeRealResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="o" type="tns:Order" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Order">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="OrderCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrderDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrderHour" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Orusername" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddOrderResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="AddOrderDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="od" type="tns:OrderDetails" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="OrderDetails">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Orcode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Prcode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Prquantity" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddOrderDetailsResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="UpdateQuantity">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="qua" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateQuantityResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="OrderSearch">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="srchkey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="choice" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OrderSearchResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OrderSearchResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProdDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ordercode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProdDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProdDetailsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddShift">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="s" type="tns:Shift" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Shift">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ShiftCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShiftKind" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShiftAdmin" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShiftDate" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddShiftResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="AddShiftDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sd" type="tns:ShiftDetails" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ShiftDetails">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ShiftCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShiftMembers" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShiftStatus" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddShiftDetailsResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllUsers">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllUsersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllUsersResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ShiftSearch">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="code" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ShiftSearchResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ShiftSearchResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ShiftSearchByDate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="code" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ShiftSearchByDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ShiftSearchByDateResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ShiftDetailsSearch">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="code" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ShiftDetailsSearchResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ShiftDetailsSearchResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ShiftDetailsMemberSearch">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ShiftDetailsMemberSearchResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ShiftDetailsMemberSearchResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ShiftAdminSearch">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ShiftAdminSearchResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ShiftAdminSearchResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateShift">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="s" type="tns:Shift" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateShiftResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeleteShiftDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="code" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteShiftDetailsResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetMembersDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="shiftcode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMembersDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMembersDetailsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="RegisterUserSoapIn">
+    <wsdl:part name="parameters" element="tns:RegisterUser" />
+  </wsdl:message>
+  <wsdl:message name="RegisterUserSoapOut">
+    <wsdl:part name="parameters" element="tns:RegisterUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="UserLoginSoapIn">
+    <wsdl:part name="parameters" element="tns:UserLogin" />
+  </wsdl:message>
+  <wsdl:message name="UserLoginSoapOut">
+    <wsdl:part name="parameters" element="tns:UserLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateUser" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="AdminSearchSoapIn">
+    <wsdl:part name="parameters" element="tns:AdminSearch" />
+  </wsdl:message>
+  <wsdl:message name="AdminSearchSoapOut">
+    <wsdl:part name="parameters" element="tns:AdminSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsExistsSoapIn">
+    <wsdl:part name="parameters" element="tns:IsExists" />
+  </wsdl:message>
+  <wsdl:message name="IsExistsSoapOut">
+    <wsdl:part name="parameters" element="tns:IsExistsResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddItemSoapIn">
+    <wsdl:part name="parameters" element="tns:AddItem" />
+  </wsdl:message>
+  <wsdl:message name="AddItemSoapOut">
+    <wsdl:part name="parameters" element="tns:AddItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPicNameSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPicName" />
+  </wsdl:message>
+  <wsdl:message name="GetPicNameSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPicNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateItemSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateItem" />
+  </wsdl:message>
+  <wsdl:message name="UpdateItemSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="ItemSearchSoapIn">
+    <wsdl:part name="parameters" element="tns:ItemSearch" />
+  </wsdl:message>
+  <wsdl:message name="ItemSearchSoapOut">
+    <wsdl:part name="parameters" element="tns:ItemSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="ItemSearchByCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:ItemSearchByCode" />
+  </wsdl:message>
+  <wsdl:message name="ItemSearchByCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:ItemSearchByCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ItemSearchByCodeRealSoapIn">
+    <wsdl:part name="parameters" element="tns:ItemSearchByCodeReal" />
+  </wsdl:message>
+  <wsdl:message name="ItemSearchByCodeRealSoapOut">
+    <wsdl:part name="parameters" element="tns:ItemSearchByCodeRealResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:AddOrder" />
+  </wsdl:message>
+  <wsdl:message name="AddOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:AddOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddOrderDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:AddOrderDetails" />
+  </wsdl:message>
+  <wsdl:message name="AddOrderDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:AddOrderDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateQuantitySoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateQuantity" />
+  </wsdl:message>
+  <wsdl:message name="UpdateQuantitySoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateQuantityResponse" />
+  </wsdl:message>
+  <wsdl:message name="OrderSearchSoapIn">
+    <wsdl:part name="parameters" element="tns:OrderSearch" />
+  </wsdl:message>
+  <wsdl:message name="OrderSearchSoapOut">
+    <wsdl:part name="parameters" element="tns:OrderSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProdDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProdDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetProdDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProdDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddShiftSoapIn">
+    <wsdl:part name="parameters" element="tns:AddShift" />
+  </wsdl:message>
+  <wsdl:message name="AddShiftSoapOut">
+    <wsdl:part name="parameters" element="tns:AddShiftResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddShiftDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:AddShiftDetails" />
+  </wsdl:message>
+  <wsdl:message name="AddShiftDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:AddShiftDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllUsersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllUsers" />
+  </wsdl:message>
+  <wsdl:message name="GetAllUsersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="ShiftSearchSoapIn">
+    <wsdl:part name="parameters" element="tns:ShiftSearch" />
+  </wsdl:message>
+  <wsdl:message name="ShiftSearchSoapOut">
+    <wsdl:part name="parameters" element="tns:ShiftSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="ShiftSearchByDateSoapIn">
+    <wsdl:part name="parameters" element="tns:ShiftSearchByDate" />
+  </wsdl:message>
+  <wsdl:message name="ShiftSearchByDateSoapOut">
+    <wsdl:part name="parameters" element="tns:ShiftSearchByDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ShiftDetailsSearchSoapIn">
+    <wsdl:part name="parameters" element="tns:ShiftDetailsSearch" />
+  </wsdl:message>
+  <wsdl:message name="ShiftDetailsSearchSoapOut">
+    <wsdl:part name="parameters" element="tns:ShiftDetailsSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="ShiftDetailsMemberSearchSoapIn">
+    <wsdl:part name="parameters" element="tns:ShiftDetailsMemberSearch" />
+  </wsdl:message>
+  <wsdl:message name="ShiftDetailsMemberSearchSoapOut">
+    <wsdl:part name="parameters" element="tns:ShiftDetailsMemberSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="ShiftAdminSearchSoapIn">
+    <wsdl:part name="parameters" element="tns:ShiftAdminSearch" />
+  </wsdl:message>
+  <wsdl:message name="ShiftAdminSearchSoapOut">
+    <wsdl:part name="parameters" element="tns:ShiftAdminSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateShiftSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateShift" />
+  </wsdl:message>
+  <wsdl:message name="UpdateShiftSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateShiftResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteShiftDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteShiftDetails" />
+  </wsdl:message>
+  <wsdl:message name="DeleteShiftDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteShiftDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMembersDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMembersDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetMembersDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMembersDetailsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceSoap">
+    <wsdl:operation name="RegisterUser">
+      <wsdl:input message="tns:RegisterUserSoapIn" />
+      <wsdl:output message="tns:RegisterUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UserLogin">
+      <wsdl:input message="tns:UserLoginSoapIn" />
+      <wsdl:output message="tns:UserLoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <wsdl:input message="tns:UpdateUserSoapIn" />
+      <wsdl:output message="tns:UpdateUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AdminSearch">
+      <wsdl:input message="tns:AdminSearchSoapIn" />
+      <wsdl:output message="tns:AdminSearchSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsExists">
+      <wsdl:input message="tns:IsExistsSoapIn" />
+      <wsdl:output message="tns:IsExistsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddItem">
+      <wsdl:input message="tns:AddItemSoapIn" />
+      <wsdl:output message="tns:AddItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPicName">
+      <wsdl:input message="tns:GetPicNameSoapIn" />
+      <wsdl:output message="tns:GetPicNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateItem">
+      <wsdl:input message="tns:UpdateItemSoapIn" />
+      <wsdl:output message="tns:UpdateItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ItemSearch">
+      <wsdl:input message="tns:ItemSearchSoapIn" />
+      <wsdl:output message="tns:ItemSearchSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ItemSearchByCode">
+      <wsdl:input message="tns:ItemSearchByCodeSoapIn" />
+      <wsdl:output message="tns:ItemSearchByCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ItemSearchByCodeReal">
+      <wsdl:input message="tns:ItemSearchByCodeRealSoapIn" />
+      <wsdl:output message="tns:ItemSearchByCodeRealSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOrder">
+      <wsdl:input message="tns:AddOrderSoapIn" />
+      <wsdl:output message="tns:AddOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOrderDetails">
+      <wsdl:input message="tns:AddOrderDetailsSoapIn" />
+      <wsdl:output message="tns:AddOrderDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateQuantity">
+      <wsdl:input message="tns:UpdateQuantitySoapIn" />
+      <wsdl:output message="tns:UpdateQuantitySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OrderSearch">
+      <wsdl:input message="tns:OrderSearchSoapIn" />
+      <wsdl:output message="tns:OrderSearchSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProdDetails">
+      <wsdl:input message="tns:GetProdDetailsSoapIn" />
+      <wsdl:output message="tns:GetProdDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddShift">
+      <wsdl:input message="tns:AddShiftSoapIn" />
+      <wsdl:output message="tns:AddShiftSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddShiftDetails">
+      <wsdl:input message="tns:AddShiftDetailsSoapIn" />
+      <wsdl:output message="tns:AddShiftDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUsers">
+      <wsdl:input message="tns:GetAllUsersSoapIn" />
+      <wsdl:output message="tns:GetAllUsersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ShiftSearch">
+      <wsdl:input message="tns:ShiftSearchSoapIn" />
+      <wsdl:output message="tns:ShiftSearchSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ShiftSearchByDate">
+      <wsdl:input message="tns:ShiftSearchByDateSoapIn" />
+      <wsdl:output message="tns:ShiftSearchByDateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ShiftDetailsSearch">
+      <wsdl:input message="tns:ShiftDetailsSearchSoapIn" />
+      <wsdl:output message="tns:ShiftDetailsSearchSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ShiftDetailsMemberSearch">
+      <wsdl:input message="tns:ShiftDetailsMemberSearchSoapIn" />
+      <wsdl:output message="tns:ShiftDetailsMemberSearchSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ShiftAdminSearch">
+      <wsdl:input message="tns:ShiftAdminSearchSoapIn" />
+      <wsdl:output message="tns:ShiftAdminSearchSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateShift">
+      <wsdl:input message="tns:UpdateShiftSoapIn" />
+      <wsdl:output message="tns:UpdateShiftSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteShiftDetails">
+      <wsdl:input message="tns:DeleteShiftDetailsSoapIn" />
+      <wsdl:output message="tns:DeleteShiftDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMembersDetails">
+      <wsdl:input message="tns:GetMembersDetailsSoapIn" />
+      <wsdl:output message="tns:GetMembersDetailsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceSoap" type="tns:ServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RegisterUser">
+      <soap:operation soapAction="http://tempuri.org/RegisterUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserLogin">
+      <soap:operation soapAction="http://tempuri.org/UserLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <soap:operation soapAction="http://tempuri.org/UpdateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdminSearch">
+      <soap:operation soapAction="http://tempuri.org/AdminSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsExists">
+      <soap:operation soapAction="http://tempuri.org/IsExists" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddItem">
+      <soap:operation soapAction="http://tempuri.org/AddItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPicName">
+      <soap:operation soapAction="http://tempuri.org/GetPicName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateItem">
+      <soap:operation soapAction="http://tempuri.org/UpdateItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ItemSearch">
+      <soap:operation soapAction="http://tempuri.org/ItemSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ItemSearchByCode">
+      <soap:operation soapAction="http://tempuri.org/ItemSearchByCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ItemSearchByCodeReal">
+      <soap:operation soapAction="http://tempuri.org/ItemSearchByCodeReal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrder">
+      <soap:operation soapAction="http://tempuri.org/AddOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrderDetails">
+      <soap:operation soapAction="http://tempuri.org/AddOrderDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateQuantity">
+      <soap:operation soapAction="http://tempuri.org/UpdateQuantity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OrderSearch">
+      <soap:operation soapAction="http://tempuri.org/OrderSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProdDetails">
+      <soap:operation soapAction="http://tempuri.org/GetProdDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddShift">
+      <soap:operation soapAction="http://tempuri.org/AddShift" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddShiftDetails">
+      <soap:operation soapAction="http://tempuri.org/AddShiftDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUsers">
+      <soap:operation soapAction="http://tempuri.org/GetAllUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShiftSearch">
+      <soap:operation soapAction="http://tempuri.org/ShiftSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShiftSearchByDate">
+      <soap:operation soapAction="http://tempuri.org/ShiftSearchByDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShiftDetailsSearch">
+      <soap:operation soapAction="http://tempuri.org/ShiftDetailsSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShiftDetailsMemberSearch">
+      <soap:operation soapAction="http://tempuri.org/ShiftDetailsMemberSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShiftAdminSearch">
+      <soap:operation soapAction="http://tempuri.org/ShiftAdminSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateShift">
+      <soap:operation soapAction="http://tempuri.org/UpdateShift" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteShiftDetails">
+      <soap:operation soapAction="http://tempuri.org/DeleteShiftDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMembersDetails">
+      <soap:operation soapAction="http://tempuri.org/GetMembersDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceSoap12" type="tns:ServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RegisterUser">
+      <soap12:operation soapAction="http://tempuri.org/RegisterUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserLogin">
+      <soap12:operation soapAction="http://tempuri.org/UserLogin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <soap12:operation soapAction="http://tempuri.org/UpdateUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdminSearch">
+      <soap12:operation soapAction="http://tempuri.org/AdminSearch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsExists">
+      <soap12:operation soapAction="http://tempuri.org/IsExists" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddItem">
+      <soap12:operation soapAction="http://tempuri.org/AddItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPicName">
+      <soap12:operation soapAction="http://tempuri.org/GetPicName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateItem">
+      <soap12:operation soapAction="http://tempuri.org/UpdateItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ItemSearch">
+      <soap12:operation soapAction="http://tempuri.org/ItemSearch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ItemSearchByCode">
+      <soap12:operation soapAction="http://tempuri.org/ItemSearchByCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ItemSearchByCodeReal">
+      <soap12:operation soapAction="http://tempuri.org/ItemSearchByCodeReal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrder">
+      <soap12:operation soapAction="http://tempuri.org/AddOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrderDetails">
+      <soap12:operation soapAction="http://tempuri.org/AddOrderDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateQuantity">
+      <soap12:operation soapAction="http://tempuri.org/UpdateQuantity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OrderSearch">
+      <soap12:operation soapAction="http://tempuri.org/OrderSearch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProdDetails">
+      <soap12:operation soapAction="http://tempuri.org/GetProdDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddShift">
+      <soap12:operation soapAction="http://tempuri.org/AddShift" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddShiftDetails">
+      <soap12:operation soapAction="http://tempuri.org/AddShiftDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUsers">
+      <soap12:operation soapAction="http://tempuri.org/GetAllUsers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShiftSearch">
+      <soap12:operation soapAction="http://tempuri.org/ShiftSearch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShiftSearchByDate">
+      <soap12:operation soapAction="http://tempuri.org/ShiftSearchByDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShiftDetailsSearch">
+      <soap12:operation soapAction="http://tempuri.org/ShiftDetailsSearch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShiftDetailsMemberSearch">
+      <soap12:operation soapAction="http://tempuri.org/ShiftDetailsMemberSearch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShiftAdminSearch">
+      <soap12:operation soapAction="http://tempuri.org/ShiftAdminSearch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateShift">
+      <soap12:operation soapAction="http://tempuri.org/UpdateShift" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteShiftDetails">
+      <soap12:operation soapAction="http://tempuri.org/DeleteShiftDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMembersDetails">
+      <soap12:operation soapAction="http://tempuri.org/GetMembersDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="ServiceSoap" binding="tns:ServiceSoap">
+      <soap:address location="http://localhost:55823/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceSoap12" binding="tns:ServiceSoap12">
+      <soap12:address location="http://localhost:55823/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -6,4 +6,3 @@ To open the website properly: Save the directory called 'orgadproj' at your desk
 To enter the website as admin: Go to 'Login'. Enter username: yhely100 and password: 1234 and Job: Mahsan.
 
 To enter the website as user: Go to 'Login'. Enter username: yhely and password: 111 and Job: Madrich.
-
